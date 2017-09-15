@@ -120,7 +120,6 @@ public class StyleClassDomReader {
     private void addUnique(Set<String> list, String value) {
         if (list != null && value != null) {
             list.add(value);
-            System.out.println("Found style: " + value);
         }
     }
 
@@ -144,7 +143,6 @@ public class StyleClassDomReader {
             String attrName = attr.getNodeName();
             String attrValue = attr.getNodeValue();
             if (attrName.equals("styleClass")) {
-                System.out.println("Found attribute: " + attrName + " with value: " + attrValue);
                 return attrValue;
             }
         }

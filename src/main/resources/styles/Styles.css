@@ -1,3 +1,66 @@
-.button {
-    -fx-font-weight: bold;
+.root {
+    -base-gray: #1A1A1A;
+    -base-dkcyan: #1e4c4a;
+    -base-dkorange: #493c1d;
+}
+
+.scene-bg {
+    -fx-background-color: derive(-base-gray, 20%);
+}
+
+.menu-bg {
+    -fx-background-color: -base-gray;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+.text-field, .choice-box, .combo-box-base, .combo-box-base:editable, .arrow-button, .context-menu, .spinner, .button {
+    -fx-text-fill: derive(-base-gray, 99%);
+    -fx-background-color: derive(-base-gray, 21%);
+    -fx-border-color: derive(-base-gray, 70%); 
+}
+
+.button:hover {
+    -fx-background-color: -base-dkcyan;
+    -fx-border-color: cyan; 
+}
+
+.button:armed, .button:active {
+    -fx-background-color: -base-dkorange;
+    -fx-border-color: orange; 
+}
+
+.combo-box-base:editable .text-field, .combo-box-base:editable .text-field .label, .combo-box-base:editable .arrow-button {
+    -fx-text-fill: white;
+    -fx-border-width: 0;
+}
+
+/* -------------- STYLES FOR THE DEFAULT LISTVIEW-BASED COMBOBOX ------------- */
+.combo-box-popup > .list-view {
+    -fx-background-color: derive(-base-gray, 21%);
+    -fx-background-insets: 0, 1;
+    -fx-border-color: derive(-base-gray, 70%); 
+}
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-padding: 4 0 4 5;
+    /* No alternate highlighting */
+    -fx-background: derive(-base-gray, 21%);
+}
+
+.combo-box-popup > .list-view > .placeholder > .label {
+    -fx-text-fill: derive(-fx-control-inner-background,-30%);
+}
+
+.export-ico {
+    -fx-graphic: url('../images/export-ico24.png');
+}
+
+.run-ico {
+    -fx-graphic: url('../images/run-ico24.png');
+}
+
+.browse-ico {
+    -fx-graphic: url('../images/browse-ico.png');
 }
