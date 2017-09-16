@@ -52,6 +52,9 @@ public class StyleClassDomReader {
      * Find all of the styleClass values in the given input string.
      *
      * @return
+     * @throws org.xml.sax.SAXException
+     * @throws java.io.IOException
+     * @throws javax.xml.parsers.ParserConfigurationException
      */
     public Set<String> find() throws SAXException, IOException, ParserConfigurationException {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
