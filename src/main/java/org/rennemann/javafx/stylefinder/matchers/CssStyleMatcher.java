@@ -15,28 +15,29 @@
  */
 package org.rennemann.javafx.stylefinder.matchers;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * JavaFX CSS style finder.
  *
  * @author Travis Rennemann
  */
-public class StyleClassMatcher {
+public class CssStyleMatcher {
 
-    private static final Pattern STLYE_CLASS_PATTERN = Pattern.compile("styleClass=\\\"(\\w{1,})\\\"");
+    private static final Pattern CSS_STYLE_PATTERN = Pattern.compile("\\.(\\w{1,})");
 
     /**
-     * Find all of the styleClass values in the given input string.
+     * Find all of the CSS styles in the given input string.
      *
      * @param input The string to search
      * @return
      */
-    public static List<String> find(String input) {
-        List<String> styleClasses = new ArrayList<>();
-        Matcher matcher = STLYE_CLASS_PATTERN.matcher(input);
+    public static Set<String> find(String input) {
+        Set<String> styleClasses = new HashSet<>();
+        Matcher matcher = CSS_STYLE_PATTERN.matcher(input);
         while (matcher.find()) {
             if (matcher.groupCount() > 0) {
                 styleClasses.add(matcher.group(1));

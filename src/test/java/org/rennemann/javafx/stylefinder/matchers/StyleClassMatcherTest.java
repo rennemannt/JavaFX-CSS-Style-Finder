@@ -16,27 +16,27 @@
 package org.rennemann.javafx.stylefinder.matchers;
 
 import java.util.Arrays;
-import java.util.List;
-import org.junit.BeforeClass;
+import java.util.HashSet;
+import java.util.Set;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Test for the StyleClassMatcher.
+ * Test for the CssStyleMatcher.
  *
  * @author Travis Rennemann
  */
 public class StyleClassMatcherTest {
 
     /**
-     * Test of find method, of class StyleClassMatcher.
+     * Test of find method, of class CssStyleMatcher.
      */
     @Test
     public void testFind() {
         System.out.println("test StyleClassMatcher -> find");
-        String input = "<Label minHeight=\"-Infinity\" minWidth=\"-Infinity\" styleClass=\"srch_line_item_label\" text=\"Data Type:\" AnchorPane.rightAnchor=\"0.0\" AnchorPane.topAnchor=\"0.0\" HBox.hgrow=\"NEVER\" />";
-        List<String> expResult = Arrays.asList("srch_line_item_label");
-        List<String> result = StyleClassMatcher.find(input);
+        String input = ".test_style { } .test_style2 { }";
+        Set<String> expResult = new HashSet<>(Arrays.asList("test_style", "test_style2"));
+        Set<String> result = CssStyleMatcher.find(input);
         assertEquals(expResult, result);
     }
 
