@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
  */
 public class CssStyleMatcher {
 
-    private static final Pattern CSS_STYLE_PATTERN = Pattern.compile("\\.(\\w{1,})");
+    private static final Pattern CSS_STYLE_PATTERN = Pattern.compile("([^.\\}\\{]+)(\\{[^\\}]+\\})", Pattern.DOTALL | Pattern.MULTILINE);
 
     /**
      * Find all of the CSS styles in the given input string.
@@ -37,6 +37,7 @@ public class CssStyleMatcher {
      */
     public static Set<String> find(String input) {
         Set<String> styleClasses = new HashSet<>();
+        input = input.replaceAll("(?s)/\\*.*?\\*/", ""); //This is to remove the comments from the CSS
         Matcher matcher = CSS_STYLE_PATTERN.matcher(input);
         while (matcher.find()) {
             if (matcher.groupCount() > 0) {

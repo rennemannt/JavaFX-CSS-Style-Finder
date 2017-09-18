@@ -35,7 +35,7 @@ public class StyleClassMatcherTest {
     public void testFind() {
         System.out.println("test StyleClassMatcher -> find");
         String input = ".test_style { } .test_style2 { }";
-        Set<String> expResult = new HashSet<>(Arrays.asList("test_style", "test_style2"));
+        Set<String> expResult = new HashSet<>(Arrays.asList("test_style ", "test_style2 "));
         Set<String> result = CssStyleMatcher.find(input);
         assertEquals(expResult, result);
     }
