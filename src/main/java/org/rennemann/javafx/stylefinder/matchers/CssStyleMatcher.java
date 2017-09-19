@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
  */
 public class CssStyleMatcher {
 
-    private static final Pattern CSS_STYLE_PATTERN = Pattern.compile("([^.\\}\\{]+)(\\{[^\\}]+\\})", Pattern.DOTALL | Pattern.MULTILINE);
+    private static final Pattern CSS_STYLE_PATTERN = Pattern.compile("([^.\\}\\{]+)(\\s{0,}\\{[^\\}]+\\})", Pattern.DOTALL | Pattern.MULTILINE);
 
     /**
      * Find all of the CSS styles in the given input string.
@@ -41,7 +41,7 @@ public class CssStyleMatcher {
         Matcher matcher = CSS_STYLE_PATTERN.matcher(input);
         while (matcher.find()) {
             if (matcher.groupCount() > 0) {
-                styleClasses.add(matcher.group(1));
+                styleClasses.add(matcher.group(1).trim());
             }
         }
 

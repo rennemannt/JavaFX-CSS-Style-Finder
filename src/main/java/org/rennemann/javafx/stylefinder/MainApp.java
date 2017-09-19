@@ -17,7 +17,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
         
-        stage.setTitle("JavaFX CSS Style Finder");
+        stage.setTitle("JavaFX CSS Style Finder - v1.0");
         stage.setScene(scene);
         stage.show();
     }

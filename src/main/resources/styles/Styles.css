@@ -53,6 +53,7 @@
     -fx-text-fill: derive(-fx-control-inner-background,-30%);
 }
 
+/* Buttons */
 .export-ico {
     -fx-graphic: url('../images/export-ico24.png');
 }
@@ -63,4 +64,26 @@
 
 .browse-ico {
     -fx-graphic: url('../images/browse-ico.png');
+}
+
+/* Tabs */
+.tab-pane, .tab {
+    -fx-border-color: gray;
+}
+
+.tab {
+    -fx-background-color: derive(gray, 40%);
+}
+
+.tab:selected:top {
+    -fx-background-color: white;
+    -fx-border-color: gray;
+}
+
+.tab-header-background {
+    -fx-background-color: gray;
+}
+
+.content {
+    -fx-background-color: derive(gray, 99%);
 }

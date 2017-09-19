@@ -11,47 +11,62 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="320" styleClass="scene-bg" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rennemann.javafx.stylefinder.FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="350.0" styleClass="scene-bg" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rennemann.javafx.stylefinder.FXMLController">
     <children>
         <VBox alignment="CENTER_LEFT" layoutX="110.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label text="FXML Files Parent Directory" />
-                <HBox fillHeight="false" spacing="5.0" VBox.vgrow="NEVER">
-                    <children>
-                        <TextField fx:id="directoryTextField" promptText="Enter absolute file path or click the browse button" HBox.hgrow="ALWAYS">
-                            <HBox.margin>
-                                <Insets />
-                            </HBox.margin>
-                        </TextField>
-                        <Button fx:id="browseButton" defaultButton="true" minWidth="30.0" mnemonicParsing="false" styleClass="browse-ico">
-                            <tooltip>
-                                <Tooltip text="Click to Browse for Directory" />
-                            </tooltip>
-                        </Button>
-                    </children>
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </HBox>
-                <Button fx:id="findStylesButton" mnemonicParsing="false" text="Find Styles" />
+            <TextFlow maxHeight="-Infinity" prefHeight="65.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Use this tool to find all the CSS styles referenced in FXML files. Optionally, load a JavaFX CSS file to determine which styles are referenced by the FXML files and which ones are not used." />
+               </children>
+            </TextFlow>
                 <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
                     <tabs>
                         <Tab text="Styles by File">
                             <content>
-                                <VBox>
+                                <VBox spacing="5.0">
                                     <children>
-                                        <TextArea fx:id="outputTextArea" promptText="Found styles will be grouped by file" VBox.vgrow="ALWAYS" />
-                                    </children>
-                                </VBox>
-                            </content>
-                        </Tab>
-                        <Tab text="Unique Styles">
-                            <content>
-                                <VBox>
-                                    <children>
+                                  <Label text="Parent Directory for FXML Files">
+                                 <tooltip>
+                                    <Tooltip text="The selected directory is recursively searched for FXML files" />
+                                 </tooltip>
+                              </Label>
+                                  <HBox fillHeight="false" spacing="5.0" VBox.vgrow="NEVER">
+                                      <children>
+                                          <TextField fx:id="directoryTextField" promptText="Enter absolute file path or click the browse button" HBox.hgrow="ALWAYS">
+                                              <HBox.margin>
+                                                  <Insets />
+                                              </HBox.margin>
+                                       <tooltip>
+                                          <Tooltip text="The selected directory is recursively searched for FXML files" />
+                                       </tooltip>
+                                          </TextField>
+                                          <Button fx:id="browseButton" defaultButton="true" minWidth="30.0" mnemonicParsing="false" styleClass="browse-ico">
+                                              <tooltip>
+                                                  <Tooltip text="Click to Browse for Directory" />
+                                              </tooltip>
+                                          </Button>
+                                      </children>
+                                      <VBox.margin>
+                                          <Insets />
+                                      </VBox.margin>
+                                  </HBox>
+                                  <Button fx:id="findStylesButton" mnemonicParsing="false" text="Find Styles">
+                                 <tooltip>
+                                    <Tooltip text="The selected directory is recursively searched for FXML files" />
+                                 </tooltip>
+                              </Button>
+                              <Label layoutX="15.0" layoutY="15.0" text="Styles by File" />
+                                        <TextArea fx:id="outputTextArea" promptText="Styles grouped by file name will appear here" VBox.vgrow="ALWAYS" />
+                              <Label layoutX="15.0" layoutY="97.0" text="Distinct Styles" />
                                         <TextArea fx:id="uniqueStylesTextArea" promptText="Unique styles will appear here" VBox.vgrow="ALWAYS" />
                                     </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
                                 </VBox>
                             </content>
                         </Tab>
@@ -70,9 +85,9 @@
                                     </Button>
                                  </children>
                               </HBox>
-                              <Button fx:id="analyzeButton" mnemonicParsing="false" text="Analyze Style Matches" />
+                              <Button fx:id="analyzeButton" mnemonicParsing="false" text="Analyze FXML to CSS Styles" />
                               <Label layoutX="15.0" layoutY="67.0" text="Used CSS Styles" />
-                              <TextArea fx:id="usedStylesTextArea" layoutX="15.0" layoutY="89.0" promptText="Used styles will appear here" />
+                              <TextArea fx:id="usedStylesTextArea" layoutX="15.0" layoutY="89.0" promptText="Used styles will appear here" VBox.vgrow="ALWAYS" />
                               <Label text="Unused CSS Styles" />
                                         <TextArea fx:id="unusedStylesTextArea" promptText="Unused styles will appear here" VBox.vgrow="ALWAYS" />
                                     </children>
