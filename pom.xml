@@ -4,7 +4,7 @@
 
     <groupId>org.rennemann.javafx</groupId>
     <artifactId>stylefinder</artifactId>
-    <version>1.0</version>
+    <version>2.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JavaFX CSS Style Finder</name>
